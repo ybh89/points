@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 
 @Getter
-public class EarnPointCommand extends SelfValidating<EarnPointCommand> {
+public class PointEarnCommand extends SelfValidating<PointEarnCommand> {
     @NotNull
     private final Long userId;
     @Positive
@@ -14,7 +14,7 @@ public class EarnPointCommand extends SelfValidating<EarnPointCommand> {
     @NotNull
     private final PointEventCause pointEventCause;
 
-    public EarnPointCommand(Long userId, int point, String cause) {
+    public PointEarnCommand(Long userId, int point, String cause) {
         this.userId = userId;
         this.point = point;
         this.pointEventCause = PointEventCause.valueOf(cause);

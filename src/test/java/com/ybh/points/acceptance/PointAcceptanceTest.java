@@ -1,6 +1,6 @@
 package com.ybh.points.acceptance;
 
-import com.ybh.points.adapter.in.web.EarnPointRequest;
+import com.ybh.points.adapter.in.web.PointEarnRequest;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
@@ -20,8 +20,8 @@ class PointAcceptanceTest extends AcceptanceTest {
      */
     @Test
     void 포인트_전체차감_시나리오() {
-        EarnPointRequest earnPointRequest = new EarnPointRequest(1L, 1000, "WROTE_REVIEW");
-        ExtractableResponse<Response> earnResponse = 포인트_적립_요청(earnPointRequest);
+        PointEarnRequest pointEarnRequest = new PointEarnRequest(1L, 1000, "WROTE_REVIEW");
+        ExtractableResponse<Response> earnResponse = 포인트_적립_요청(pointEarnRequest);
         포인트_적립됨(earnResponse);
     }
 
@@ -32,8 +32,8 @@ class PointAcceptanceTest extends AcceptanceTest {
      */
     @Test
     void 포인트_부분차감_시나리오() {
-        EarnPointRequest earnPointRequest = new EarnPointRequest(1L, 1000, "WROTE_REVIEW");
-        ExtractableResponse<Response> earnResponse = 포인트_적립_요청(earnPointRequest);
+        PointEarnRequest pointEarnRequest = new PointEarnRequest(1L, 1000, "WROTE_REVIEW");
+        ExtractableResponse<Response> earnResponse = 포인트_적립_요청(pointEarnRequest);
         포인트_적립됨(earnResponse);
     }
 
@@ -47,8 +47,8 @@ class PointAcceptanceTest extends AcceptanceTest {
      */
     @Test
     void 포인트_부분차감취소_시나리오() {
-        EarnPointRequest earnPointRequest = new EarnPointRequest(1L, 1000, "WROTE_REVIEW");
-        ExtractableResponse<Response> earnResponse = 포인트_적립_요청(earnPointRequest);
+        PointEarnRequest pointEarnRequest = new PointEarnRequest(1L, 1000, "WROTE_REVIEW");
+        ExtractableResponse<Response> earnResponse = 포인트_적립_요청(pointEarnRequest);
         포인트_적립됨(earnResponse);
     }
 
@@ -56,7 +56,7 @@ class PointAcceptanceTest extends AcceptanceTest {
         assertHttpStatus(earnResponse, CREATED);
     }
 
-    private ExtractableResponse<Response> 포인트_적립_요청(EarnPointRequest earnPointRequest) {
-        return post(BASE_URL, earnPointRequest);
+    private ExtractableResponse<Response> 포인트_적립_요청(PointEarnRequest pointEarnRequest) {
+        return post(BASE_URL, pointEarnRequest);
     }
 }

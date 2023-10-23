@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 
 @Getter
-public class EarnPointRequest {
+public class PointEarnRequest {
     @NotNull
     private final Long userId;
     @Positive
@@ -14,7 +14,7 @@ public class EarnPointRequest {
     @NotBlank
     private final String cause;
 
-    public EarnPointRequest(Long userId, int point, String cause) {
+    public PointEarnRequest(Long userId, int point, String cause) {
         this.userId = userId;
         this.point = point;
         this.cause = cause;
