@@ -1,4 +1,4 @@
-package com.ybh.points.command.domain;
+package com.ybh.points.domain;
 
 public enum PointEventType {
     EARNED, // 적립됨
